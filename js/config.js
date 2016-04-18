@@ -1,13 +1,17 @@
-angular.module("rotas", ["ngRoute"])
+app
   .config(function($routeProvider, $locationProvider) {
     $routeProvider
       .when('/principal', {
         templateUrl: 'view/principal.html',
-
-      }).when('/sobre', {
-        templateUrl: 'view/sobre.html',
+        controller: 'PrincipalCtrl'
       })
+      .when('/sobre', {
+        templateUrl: 'view/sobre.html',
+        controller: 'SobreCtrl'
+      })
+      .otherwise({
+        redirectTo: '/principal'
+      });
 
-    // configure html5 to get links working on jsfiddle
-    $locationProvider.html5Mode(true);
+
   });
